@@ -23,6 +23,7 @@ public class Hashmap {
         map.put("Oct", 31);
         map.put("Nov", 31);
         map.put("Dec", 31);
+
         for (Integer v : map.values()) {
             System.out.print(v + " ");
         }
@@ -43,7 +44,6 @@ public class Hashmap {
         }
 
         System.out.println("======================");
-
         for (String key : map.keySet()) {
             System.out.print(key);
         }

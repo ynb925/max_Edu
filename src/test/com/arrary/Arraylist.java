@@ -22,13 +22,11 @@ public class Arraylist {
         System.out.println("2nd part");
         numbers.set(numbers.indexOf("tree"), "3");
         numbers.set(numbers.indexOf("five"), "5");
-
         System.out.println(numbers);
 
         System.out.println("3nd part");
-        numbers.remove(numbers.indexOf("two"));
-        numbers.remove(numbers.indexOf("nine"));
-
+        numbers.remove("two");
+        numbers.remove("nine");
         System.out.println(numbers);
     }
 }

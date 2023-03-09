@@ -5,7 +5,6 @@ public class Hawk extends Animal {
     void move() {
         System.out.println("fly");
     }
-
     @Override
     void talk() {
 

@@ -11,10 +11,8 @@ import java.util.Scanner;
 public class For {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         System.out.println("enter 1st num");
         int num1 = sc.nextInt();
-
         System.out.println("enter 2nd num");
         int num2 = sc.nextInt();
 
@@ -22,7 +20,6 @@ public class For {
     }
 
     static public void job(int a, int b) {
-
         if (a < b) {
             System.out.println(a + "-->" + b + "  a < b");
             for (int i = a; i < b; i++) {

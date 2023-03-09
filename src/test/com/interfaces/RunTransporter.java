@@ -15,7 +15,7 @@ package test.com.interfaces;
  * the car is on the way
  * the bicycle is on the way
  */
-public class Solution {
+public class RunTransporter {
     public static void main(String[] args) {
         Transporter transporter = new Transporter();
         Car car = new Car();

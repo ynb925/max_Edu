@@ -13,6 +13,7 @@ public class Calculator_if_else {
         Scanner sc = new Scanner(System.in);
 
         int num = sc.nextInt();
+
         calculate(num);
     }
 

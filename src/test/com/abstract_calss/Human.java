@@ -5,7 +5,6 @@ public class Human extends Animal{
     void move() {
         System.out.println("walk");
     }
-
     @Override
     void talk() {
 

@@ -18,19 +18,15 @@ public class Converter {
     public static void main(String[] args) {
         converter(str1);
         converter(str2);
-
     }
 
     public static void converter(String str) {
-
         String s = str.replaceAll(" ", "");
-
         StringBuilder builder = new StringBuilder(s.toLowerCase());
-
         StringBuilder reverse = builder.reverse();
+
         String firstPart = reverse.substring(0, reverse.length() / 2);
         String secondPart = reverse.substring(reverse.length() / 2, reverse.length());
-
 
         if (firstPart.length() < secondPart.length()) {
             firstPart = reverse.substring(0, (reverse.length() + 1) / 2);

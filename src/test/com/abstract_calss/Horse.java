@@ -5,7 +5,6 @@ public class Horse extends Animal {
     void move() {
         System.out.println("run");
     }
-
     @Override
     void talk() {
 
