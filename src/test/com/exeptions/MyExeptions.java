@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
+
 /**
  * Напиши клас, який виконує наступні дії:
  * 1. Приймає з клавіатури два цілих числа розділених комою.
@@ -19,27 +20,30 @@ import java.util.Scanner;
 public class MyExeptions {
     public static void main(String[] args) {
         final int limitNum = 20;
+
         Random rd = new Random();
+
         Scanner sc = new Scanner(System.in);
+
         String strIn = sc.nextLine();
         String[] strSplit = strIn.split(",");
 
-        int value1 = Integer.parseInt(strSplit[0]);
-        int value2 = Integer.parseInt(strSplit[0] );
-
-
         try {
+            int value1 = Integer.parseInt(strSplit[0]);
+            int value2 = Integer.parseInt(strSplit[1]);
+
             if (value1 > value2) {
-                //    throw new IllegalAccessException (e);
+                throw new IllegalArgumentException("first number should be less than second");
+            }
+            if (strSplit.length > 2) {
+                throw new IllegalArgumentException("maximum 2 numbers");
             } else {
                 for (int i = 0; i < limitNum; i++) {
                     System.out.print(rd.nextInt(value2) + value1);
                 }
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException | InputMismatchException e) {
             throw new IllegalArgumentException("illegal symbols, use only numbers");
-        } catch (InputMismatchException e) {
-            throw new IllegalArgumentException("first number should be less than second");
         }
     }
 }
