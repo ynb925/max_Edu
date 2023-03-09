@@ -20,14 +20,14 @@ import java.util.Scanner;
 public class MyExeptions {
     public static void main(String[] args) {
         final int limitNum = 20;
-
         Random rd = new Random();
-
         Scanner sc = new Scanner(System.in);
-
         String strIn = sc.nextLine();
-        String[] strSplit = strIn.split(",");
 
+        String[] strSplit = strIn.split(",");
+        if (strSplit.length != 2) {
+            throw new IllegalArgumentException("maximum 2 numbers");
+        }
         try {
             int value1 = Integer.parseInt(strSplit[0]);
             int value2 = Integer.parseInt(strSplit[1]);
@@ -35,12 +35,9 @@ public class MyExeptions {
             if (value1 > value2) {
                 throw new IllegalArgumentException("first number should be less than second");
             }
-            if (strSplit.length > 2) {
-                throw new IllegalArgumentException("maximum 2 numbers");
-            } else {
-                for (int i = 0; i < limitNum; i++) {
-                    System.out.print(rd.nextInt(value2) + value1);
-                }
+
+            for (int i = 0; i < limitNum; i++) {
+                System.out.print(rd.nextInt(value2) + value1);
             }
         } catch (NumberFormatException | InputMismatchException e) {
             throw new IllegalArgumentException("illegal symbols, use only numbers");
