@@ -1,4 +1,4 @@
-package stream_api;
+package com.streamsapi;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,7 +20,6 @@ public class StreamApi2 {
     }
 
     private static Integer convertToNumber(String s) {
-
         switch (s) {
             case "zero":
                 return 0;
@@ -43,7 +42,7 @@ public class StreamApi2 {
             case "nine":
                 return 9;
             default:
-                throw new RuntimeException();
+                throw new IllegalArgumentException();
         }
     }
 }

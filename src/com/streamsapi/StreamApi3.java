@@ -1,8 +1,9 @@
-package stream_api;
+package com.streamsapi;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 
@@ -11,11 +12,12 @@ import java.util.stream.Collectors;
  * В наступній стрічці зробити стрім, знайти найдовше слово, використати .collect(Collectors.joining.. ) для отримання формату для прикладу “(t,w,o)”
  */
 public class StreamApi3 {
+
     public static void main(String[] args) {
         List<String> list = List.of("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine");
 
         String result = list.stream()
-                .max(Comparator.comparing(String::length)).orElseThrow();
+                .max(Comparator.comparing(String::length)).orElseThrow(NoSuchElementException::new);
 
         String line = Arrays.stream(result.split(""))
                 .collect(Collectors.joining(",", "(", ")"));
