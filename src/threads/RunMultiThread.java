@@ -1,6 +1,7 @@
 package threads;
 
 public class RunMultiThread {
+
     public static void main(String[] args) {
         MultiThread multiThread1 = new MultiThread();
         MultiThread multiThread2 = new MultiThread();
