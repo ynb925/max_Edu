@@ -5,26 +5,26 @@ import java.nio.file.Path;
 
 public class Test {
 
-    public static void main(String[] args) {
-        Path path = Path.of("res", "serialObj.txt");
+    private final Path path;
 
-        serializeWriteObj(path);
-        deSerializeReadObj(path);
+    public Test(Path path) {
+        this.path = path;
     }
 
-    private static void serializeWriteObj(Path path) {
+    public void serializeWriteObj(Body body) {
         try (ObjectOutputStream fileOut = new ObjectOutputStream(new FileOutputStream(path.toFile()))) {
-            Body body1 = new Body(34, "First");
-            fileOut.writeObject(body1);
+            fileOut.writeObject(body);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static void deSerializeReadObj(Path path) {
+    public Body deSerializeReadObj() {
         try (ObjectInputStream fileIn = new ObjectInputStream(new FileInputStream(path.toFile()))) {
-            Object obj = fileIn.readObject();
-            System.out.println(obj);
+            Body body = (Body) fileIn.readObject();
+            System.out.println(body);
+
+            return body;
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
