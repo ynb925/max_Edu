@@ -1,7 +1,5 @@
 package com.task.constructions;
 
-import java.util.Scanner;
-
 /**
  * Умовна конструкція switch:
  * У клас Calculator додати метод calculateSwitch(int number) який буде
@@ -9,16 +7,10 @@ import java.util.Scanner;
  * яка цифра прийде у метод, потрібно виводити різні повідомлення у консоль.
  * Приклад:  1 - "turn on", 2 - "pause", 3 - turn down".
  */
-public class CalculatorBySwitch {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-        
-        calculate(num);
-    }
+public class CalcBySwitch {
 
-    public static void calculate(int num) {
+       public void calculate(int num) {
         switch (num) {
             case 1:
                 System.out.println(" 1 - turn on ");

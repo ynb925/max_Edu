@@ -1,7 +1,5 @@
 package com.task.constructions;
 
-import java.util.Scanner;
-
 /**
  * Умовна конструкція з тернарним оператором:
  * Створити у класі Calculator метод calculateTernary(int number)
@@ -10,16 +8,9 @@ import java.util.Scanner;
  * Приклад: 1 - “Odd number: 1”, 2 - “Even number: 2”.
  */
 
-public class CalculatorByTernaryOperator {
+public class CalcByTernaryOperator {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int num = sc.nextInt();
-
-        System.out.println(calculate(num));
-    }
-
-     public static String calculate(int number) {
+       public   String calculate(int number) {
         return number % 2 == 0 ? number + " - Even number" : number + " - Odd number";
     }
 }
