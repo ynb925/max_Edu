@@ -11,9 +11,7 @@ public class RunMultiThread {
         multiThread2.start();
         multiThread3.start();
 
-
         Runnable runnable1 = () -> System.out.println("thread name: " + Thread.currentThread().getName());
         runnable1.run();
-
     }
 }
