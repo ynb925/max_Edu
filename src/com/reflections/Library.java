@@ -8,7 +8,8 @@ package com.reflections;
  * Три методи з різними модифікаторами доступу: addBook() (private), openLibrary() (protected) ,та closeLibrary() (default).
  * Два public методи для отримання значень приватних полів: getNumberOfBooks() та getAddress().
  */
-public class Library implements Runnable {
+
+class Library implements Runnable, Cloneable {
 
     public String name;
     private int numberOfBooks;
@@ -16,6 +17,11 @@ public class Library implements Runnable {
     String address;
 
     public Library() {
+        this.name = "default name";
+    }
+
+    public Library(String name) {
+        this.name = name;
     }
 
     public Library(String name, int numberOfBooks, boolean isOpen, String address) {
@@ -40,6 +46,16 @@ public class Library implements Runnable {
     }
 
     void closeLibrary() {
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "name='" + name + '\'' +
+                ", numberOfBooks=" + numberOfBooks +
+                ", isOpen=" + isOpen +
+                ", address='" + address + '\'' +
+                '}';
     }
 
     @Override

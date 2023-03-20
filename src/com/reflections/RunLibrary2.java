@@ -1,5 +1,8 @@
 package com.reflections;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * * PART 2
  * * В тому ж методі main зробити наступні дії:
@@ -10,15 +13,16 @@ package com.reflections;
 
 public class RunLibrary2 {
 
-    public static void main(String[] args) throws IllegalAccessException {
-        //Library library = new Library("SomeNameText", 123, false, "UA city Kiev str Pchilki");
-        Library library = new Library();
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
-        System.out.println("_______Ім'я класу___________");
-        String className = library.getClass().getSimpleName();
-        System.out.println(className);
-        System.out.println();
-        System.out.println("__________________________________________________________________");
+        Library library = new Library("libka",123,true,"etrte");
+        System.out.println(library);
+        System.out.println("------------------");
 
+        Class<Library> libraryClass = Library.class;
+        Constructor<Library> constructor = libraryClass.getConstructor(String.class,int.class,boolean.class,String.class);
+        constructor.setAccessible(true);
+        Library library1 = constructor.newInstance("gagag",556,false,"last");
+        System.out.println(library1);
     }
 }
