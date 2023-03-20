@@ -9,7 +9,7 @@ package com.reflections;
  * Два public методи для отримання значень приватних полів: getNumberOfBooks() та getAddress().
  */
 
-class Library implements Runnable, Cloneable {
+public class Library implements Runnable, Cloneable {
 
     public String name;
     private int numberOfBooks;
@@ -20,7 +20,7 @@ class Library implements Runnable, Cloneable {
         this.name = "default name";
     }
 
-    public Library(String name) {
+    private Library(String name) {
         this.name = name;
     }
 

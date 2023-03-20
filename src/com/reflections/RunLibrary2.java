@@ -15,14 +15,25 @@ public class RunLibrary2 {
 
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
 
-        Library library = new Library("libka",123,true,"etrte");
-        System.out.println(library);
-        System.out.println("------------------");
+        Library library = new Library("libka", 123, true, "etrte");
+        System.out.println(library+" - this is original Object from class Library");
+        System.out.println("--------------------------------------------------------------------------");
 
+        createObjectWithoutConstructor();
+        System.out.println("--------------------------------------------------------------------------");
+        createObjectByConstructor();
+    }
+
+    private static void createObjectWithoutConstructor() throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+        Library library1 = Library.class.getDeclaredConstructor().newInstance();
+        System.out.println(library1 + " - without use constructor");
+    }
+
+    private static void createObjectByConstructor() throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
         Class<Library> libraryClass = Library.class;
-        Constructor<Library> constructor = libraryClass.getConstructor(String.class,int.class,boolean.class,String.class);
+        Constructor<Library> constructor = libraryClass.getConstructor(String.class, int.class, boolean.class, String.class);
         constructor.setAccessible(true);
-        Library library1 = constructor.newInstance("gagag",556,false,"last");
-        System.out.println(library1);
+        Library library1 = constructor.newInstance("gagag", 556, false, "last");
+        System.out.println(library1 + " - use constructor");
     }
 }
