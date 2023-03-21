@@ -13,10 +13,10 @@ import java.lang.reflect.InvocationTargetException;
 
 public class RunLibrary2 {
 
-    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
 
         Library library = new Library("libka", 123, true, "etrte");
-        System.out.println(library+" - this is original Object from class Library");
+        System.out.println(library + " - this is original Object from class Library");
         System.out.println("--------------------------------------------------------------------------");
 
         createObjectWithoutConstructor();
@@ -24,12 +24,12 @@ public class RunLibrary2 {
         createObjectByConstructor();
     }
 
-    private static void createObjectWithoutConstructor() throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    private static void createObjectWithoutConstructor() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Library library1 = Library.class.getDeclaredConstructor().newInstance();
         System.out.println(library1 + " - without use constructor");
     }
 
-    private static void createObjectByConstructor() throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+    private static void createObjectByConstructor() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         Class<Library> libraryClass = Library.class;
         Constructor<Library> constructor = libraryClass.getConstructor(String.class, int.class, boolean.class, String.class);
         constructor.setAccessible(true);

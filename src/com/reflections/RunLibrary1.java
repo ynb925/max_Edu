@@ -14,49 +14,48 @@ import java.lang.reflect.Modifier;
  * Поля класу, їх імена, модифікатори, типи.
  * Конструктори класу, їх імена, модифікатори та параметри.
  * Методи класу, їх імена, модифікатори, типи повернення та параметри.
- * <p>
  */
 
 public class RunLibrary1 {
 
-    public static void main(String[] args)      {
+    public static void main(String[] args) {
         Library library = new Library("SomeNameText", 123, false, "UA city Kiev str Electric");
 
-        System.out.println("_______Ім'я класу___________");
+        System.out.println("Our Class name: ");
         String className = library.getClass().getSimpleName();
-        System.out.println("Class name: " + className);
-        System.out.println();
+        System.out.println(className + "\n");
 
-        System.out.println("__________Модифікатори класу (public, private, protected, abstract, final тощо).______");
+        System.out.println("Modifiers of our Class:");
         int modifiersClass = library.getClass().getModifiers();
-        System.out.println("Modifiers of " + className + " is: " + (modifiersClass == 0 ? "default" : Modifier.toString(modifiersClass)));
-        System.out.println();
+        System.out.println(modifiersClass == 0 ? "default" + "\n" : Modifier.toString(modifiersClass) + "\n");
 
-        System.out.println("____________Батьківський клас та інтерфейси, які він реалізує.___________");
+        System.out.println("Parent Class of our Class,Implements Interfaces:");
         Class<?> superclass = library.getClass().getSuperclass();
-        System.out.println("Parent of " + className + " is: " + superclass.getSimpleName());
+
+        System.out.println(superclass.getSimpleName());
+
         var interfaces = library.getClass().getInterfaces();
 
         for (Class<?> anInterface : interfaces) {
-            System.out.println(className + " Implements Interfaces: " + anInterface.getSimpleName());
+            System.out.println("Class Implements Interfaces  " + anInterface.getSimpleName());
         }
         System.out.println();
 
-        System.out.println("_________Поля класу, їх імена, модифікатори, типи._________");
+        System.out.println("Field`s,Name`s,Modifier`s,Type of our Class:");
         Field[] fieldsClass = library.getClass().getDeclaredFields();
 
         for (Field declaredField : fieldsClass) {
             String fieldName = declaredField.getName();
-            String fieldModifier = Modifier.toString(declaredField.getModifiers());
-            if (declaredField.getModifiers() == 0) fieldModifier += "default";
             String fieldType = declaredField.getType().getSimpleName();
-            System.out.println(className + " fieldName: " + fieldName + " fieldModifier: " + fieldModifier + " fieldType: " + fieldType);
+            System.out.println(fieldName + " - " + (modifiersClass == 0 ? "default" + "\n" : Modifier.toString(modifiersClass)) + " - " + fieldType);
         }
         System.out.println();
 
-        System.out.println("_____________Конструктори класу, їх імена, модифікатори та параметри.______________");
+        System.out.println("Constructor`s,Name`s,Modifier`s,Type of our Class:");
         Constructor<?>[] constructors = library.getClass().getConstructors();
+
         System.out.println(constructors[0].getName());
+
         int constructorCounter = 1;
 
         for (Constructor<?> constructor : constructors) {
@@ -66,15 +65,18 @@ public class RunLibrary1 {
                 System.out.println(parameterType.getSimpleName());
             }
         }
+        System.out.println();
 
-        System.out.println("___________Методи класу, їх імена, модифікатори, типи повернення та параметри._____________");
+        System.out.println("Method`s,Name`s,Modifier`s,Type of our Class:");
         Method[] methods = library.getClass().getDeclaredMethods();
+        int MethodCounter = 1;
 
         for (Method method : methods) {
-            System.out.println("|1| Method named: " + method.getName() + "\n|2| Modifiers: " +
-                    Modifier.toString(method.getModifiers()) +
-                    "\n|3| Return type: " + method.getReturnType().getName() +
-                    "\n---------------------");
+            System.out.println("#" + MethodCounter++);
+            System.out.println(method.getName() + "\n" +
+                    (method.getModifiers() == 0 ? "default" : Modifier.toString(method.getModifiers())) +
+                    "\n" + method.getReturnType().getSimpleName() +
+                    "\n");
         }
     }
 }
